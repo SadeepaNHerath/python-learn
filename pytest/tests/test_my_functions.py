@@ -1,12 +1,9 @@
 import math
-import time
-
 import pytest
 import src.my_functions as my_functions
 
 def test_add():
     assert my_functions.add(1, 2) == 3
-
 
 def test_add_string():
     assert my_functions.add("1", "2") == 3
@@ -31,3 +28,4 @@ def test_divide_invalid():
 
 def test_divide_zero():
     assert my_functions.divide(1, 0) == "Error: Division by zero is not allowed."
+
