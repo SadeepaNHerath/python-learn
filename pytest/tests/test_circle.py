@@ -1,6 +1,6 @@
 import math
 import pytest
-import source.shapes as shapes
+import src.shapes as shapes
 
 class TestCircle:
 
