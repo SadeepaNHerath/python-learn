@@ -1,4 +1,4 @@
-import  requests
+import requests
 
 database = {
     "users": {
@@ -15,8 +15,10 @@ database = {
     }
 }
 
+
 def get_user_from_db(user_id):
     return database.get(user_id)
+
 
 def get_users():
     response = requests.get("https://jsonplaceholder.typicode.com/users")

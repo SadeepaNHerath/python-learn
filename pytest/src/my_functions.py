@@ -11,6 +11,7 @@ def add(*args):
             print(f"Warning: '{arg}' is not a number and will be ignored.")
     return total
 
+
 def divide(a, b):
     try:
         a = float(a)

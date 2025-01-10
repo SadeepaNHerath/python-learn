@@ -1,5 +1,7 @@
 import pytest
+
 from src.school import Classroom, Student, Teacher, ToomanyStudentsError
+
 
 # Fixtures
 @pytest.fixture
@@ -16,10 +18,12 @@ def harry_potter_classroom():
     ]
     return Classroom(teacher=teacher, students=students, course_title="Defense Against the Dark Arts")
 
+
 @pytest.fixture
 def student_draco():
     """Fixture for Draco Malfoy."""
     return Student(name="Draco Malfoy")
+
 
 # Parameterized Test Cases
 @pytest.mark.parametrize("student_name", [
@@ -31,6 +35,7 @@ def test_add_student(harry_potter_classroom, student_name):
     harry_potter_classroom.add_student(new_student)
     assert new_student in harry_potter_classroom.students
 
+
 def test_add_student_error(harry_potter_classroom):
     """Test that adding more than 10 students raises an error."""
     extra_students = [
@@ -41,21 +46,25 @@ def test_add_student_error(harry_potter_classroom):
     with pytest.raises(ToomanyStudentsError):
         harry_potter_classroom.add_student(extra_students[4])
 
+
 def test_remove_student(harry_potter_classroom):
     """Test removing a student from the classroom."""
     harry_potter_classroom.remove_student("Harry Potter")
     assert all(student.name != "Harry Potter" for student in harry_potter_classroom.students)
+
 
 def test_remove_non_existent_student(harry_potter_classroom):
     """Test removing a student who isn't in the classroom (no errors)."""
     harry_potter_classroom.remove_student("Draco Malfoy")
     assert len(harry_potter_classroom.students) == 6  # Original number of students
 
+
 def test_change_teacher(harry_potter_classroom):
     """Test changing the teacher of the classroom."""
     new_teacher = Teacher(name="Remus Lupin")
     harry_potter_classroom.change_teacher(new_teacher)
     assert harry_potter_classroom.teacher.name == "Remus Lupin"
+
 
 # Marker for edge cases
 @pytest.mark.edge_case

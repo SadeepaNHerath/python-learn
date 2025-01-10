@@ -1,7 +1,6 @@
-
-
 class ToomanyStudentsError(Exception):
     pass
+
 
 class Classroom:
 
@@ -25,13 +24,16 @@ class Classroom:
     def change_teacher(self, new_teacher):
         self.teacher = new_teacher
 
+
 class Person:
 
     def __init__(self, name):
         self.name = name
 
+
 class Teacher(Person):
     pass
+
 
 class Student(Person):
     pass

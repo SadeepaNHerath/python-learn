@@ -1,5 +1,6 @@
 import math
 
+
 class Shape:
 
     def area(self):
@@ -20,6 +21,7 @@ class Circle(Shape):
     def perimeter(self):
         return 2 * math.pi * self.radius
 
+
 class Rectangle(Shape):
 
     def __init__(self, length, width):
@@ -36,6 +38,7 @@ class Rectangle(Shape):
 
     def perimeter(self):
         return 2 * (self.length + self.width)
+
 
 class Square(Rectangle):
 
